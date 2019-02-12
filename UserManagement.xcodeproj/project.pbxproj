@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F6C93BA622118C4E004A6737 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C93B3E2211652F004A6737 /* Networking.framework */; };
 		F6DB6F8E220C8BEF0076B6B2 /* UserManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6DB6F84220C8BEF0076B6B2 /* UserManagement.framework */; };
 		F6DB6F93220C8BEF0076B6B2 /* UserManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DB6F92220C8BEF0076B6B2 /* UserManagementTests.swift */; };
 		F6DB6F9F220C8BFC0076B6B2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6DB6F9E220C8BFC0076B6B2 /* Login.storyboard */; };
@@ -20,16 +19,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F6C93B3D2211652F004A6737 /* PBXContainerItemProxy */ = {
+		F6A6E6BC22132DF700C17AA2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F6C93B382211652F004A6737 /* Networking.xcodeproj */;
+			containerPortal = F6A6E6B722132DF700C17AA2 /* Networking.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = F6C93AA8220D9506004A6737;
 			remoteInfo = Networking;
 		};
-		F6C93B3F2211652F004A6737 /* PBXContainerItemProxy */ = {
+		F6A6E6BE22132DF700C17AA2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F6C93B382211652F004A6737 /* Networking.xcodeproj */;
+			containerPortal = F6A6E6B722132DF700C17AA2 /* Networking.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = F6C93AB1220D9506004A6737;
 			remoteInfo = NetworkingTests;
@@ -44,8 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F6A6E6B722132DF700C17AA2 /* Networking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Networking.xcodeproj; path = ../MOANetworking/Networking.xcodeproj; sourceTree = "<group>"; };
 		F6C93B372211634D004A6737 /* UserManagementPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = UserManagementPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		F6C93B382211652F004A6737 /* Networking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Networking.xcodeproj; path = ../Networking/Networking.xcodeproj; sourceTree = "<group>"; };
 		F6DB6F84220C8BEF0076B6B2 /* UserManagement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UserManagement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6DB6F88220C8BEF0076B6B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6DB6F8D220C8BEF0076B6B2 /* UserManagementTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserManagementTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,7 +64,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6C93BA622118C4E004A6737 /* Networking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,11 +78,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F6C93B392211652F004A6737 /* Products */ = {
+		F6A6E6B822132DF700C17AA2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F6C93B3E2211652F004A6737 /* Networking.framework */,
-				F6C93B402211652F004A6737 /* NetworkingTests.xctest */,
+				F6A6E6BD22132DF700C17AA2 /* Networking.framework */,
+				F6A6E6BF22132DF700C17AA2 /* NetworkingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,7 +97,7 @@
 		F6DB6F7A220C8BEF0076B6B2 = {
 			isa = PBXGroup;
 			children = (
-				F6C93B382211652F004A6737 /* Networking.xcodeproj */,
+				F6A6E6B722132DF700C17AA2 /* Networking.xcodeproj */,
 				F6C93B372211634D004A6737 /* UserManagementPlayground.playground */,
 				F6DB6F86220C8BEF0076B6B2 /* UserManagement */,
 				F6DB6F91220C8BEF0076B6B2 /* UserManagementTests */,
@@ -229,8 +227,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = F6C93B392211652F004A6737 /* Products */;
-					ProjectRef = F6C93B382211652F004A6737 /* Networking.xcodeproj */;
+					ProductGroup = F6A6E6B822132DF700C17AA2 /* Products */;
+					ProjectRef = F6A6E6B722132DF700C17AA2 /* Networking.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -242,18 +240,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		F6C93B3E2211652F004A6737 /* Networking.framework */ = {
+		F6A6E6BD22132DF700C17AA2 /* Networking.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Networking.framework;
-			remoteRef = F6C93B3D2211652F004A6737 /* PBXContainerItemProxy */;
+			remoteRef = F6A6E6BC22132DF700C17AA2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F6C93B402211652F004A6737 /* NetworkingTests.xctest */ = {
+		F6A6E6BF22132DF700C17AA2 /* NetworkingTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = NetworkingTests.xctest;
-			remoteRef = F6C93B3F2211652F004A6737 /* PBXContainerItemProxy */;
+			remoteRef = F6A6E6BE22132DF700C17AA2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
