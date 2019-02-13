@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F66DAB9122140023005DD98F /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6A6E6BD22132DF700C17AA2 /* Networking.framework */; };
 		F6DB6F8E220C8BEF0076B6B2 /* UserManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6DB6F84220C8BEF0076B6B2 /* UserManagement.framework */; };
 		F6DB6F93220C8BEF0076B6B2 /* UserManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DB6F92220C8BEF0076B6B2 /* UserManagementTests.swift */; };
 		F6DB6F9F220C8BFC0076B6B2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6DB6F9E220C8BFC0076B6B2 /* Login.storyboard */; };
@@ -64,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F66DAB9122140023005DD98F /* Networking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
