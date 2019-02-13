@@ -5,35 +5,23 @@ import PlaygroundSupport
 import UserManagement
 import Networking
 
-let consumer = UserManagementModuleConsumer(presentationBlock: { (viewController, _) in
-    print("start")
-    PlaygroundPage.current.liveView = viewController
-}, dismissBlock: { (viewController, _) in
-    print("end")
-    PlaygroundPage.current.liveView = nil
-})
-let request = ExplicitLoginRequest(data: ExplicitLoginRequestBody(email: nil, password: nil))
-
-final class Networking: NetworkingType {
-    func register(module: Module.Type) {}
-    
-    func execute<T: Codable>(request: InternalRequest,
-                             presentationBlock: ((UIViewController, (() -> Void)?) -> Void)?,
-                             dismissBlock: ((UIViewController, (() -> Void)?) -> Void)?,
-                             completionHandler: @escaping (Result<T>) -> Void) {
-        print("ask for auth token")
-    }
-    
-    func execute<T: Codable>(request: InternalRequest,
-                             completionHandler: @escaping (Result<T>) -> Void) {
-        print("ask for auth token")
-    }
+class Networking: NetworkingType {
+    let modules: [ModuleType.Type] = [Module.self]
     
     func execute<T: Codable>(request: RemoteRequest,
-                             completionHandler: @escaping (Result<T>) -> Void) {}
+                             completionHandler: @escaping (_ result: Result<T>) -> Void) {
+    }
 }
 
-consumer.execute(networking: Networking(), request: request) { (result: Result<AuthenticationResponse>) in
-    print("end")
+let request = ExplicitLoginRequest(data: ExplicitLoginRequestBody(email: nil, password: nil))
+
+Networking().execute(request: request, presentationBlock: { (viewController) in
+    PlaygroundPage.current.liveView = playgroundControllers(device: .phone4inch,
+                                                            orientation: .portrait,
+                                                            child: viewController)
+}, dismissBlock: { (viewController) in
     PlaygroundPage.current.liveView = nil
-}
+}, completionHandler: { (result: Result<AuthenticationResponse>) in
+    PlaygroundPage.current.liveView = nil
+})
+

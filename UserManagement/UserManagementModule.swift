@@ -9,46 +9,33 @@
 import UIKit
 import Networking
 
-open class UserManagementModule: Module {
-    public static var Facade: ModuleFacade.Type = UserManagementModuleFacede.self
-    public static var Consumer: ModuleConsumer.Type = UserManagementModuleConsumer.self
-}
-
-open class UserManagementModuleFacede: ModuleFacade {
-    public static var requestType: [InternalRequest.Type] = [ExplicitLoginRequest.self]
-}
-
-open class UserManagementModuleConsumer: ModuleConsumer {
-    fileprivate let presentationBlock: ((UIViewController, (() -> Void)?) -> Void)?
-    fileprivate let dismissBlock: ((UIViewController, (() -> Void)?) -> Void)?
+open class Module: ModuleType {
+    public static var capabilities: [InternalRequest.Type] = [ExplicitLoginRequest.self]
     
-    fileprivate weak var loginViewController: LoginViewController?
+    fileprivate let presentationBlock: (UIViewController) -> Void
+    fileprivate let dismissBlock: (UIViewController) -> Void
     
-    required public init(presentationBlock: ((UIViewController, (() -> Void)?) -> Void)?,
-                         dismissBlock: ((UIViewController, (() -> Void)?) -> Void)?) {
+    public required init(presentationBlock: @escaping (UIViewController) -> Void,
+                         dismissBlock: @escaping (UIViewController) -> Void) {
         self.presentationBlock = presentationBlock
         self.dismissBlock = dismissBlock
     }
     
-    public func execute<T: Codable>(networking: NetworkingType, request: InternalRequest, completionHandler: @escaping (Result<T>) -> Void) {
+    public func execute<T: Codable>(networking: NetworkingType,
+                                    request: InternalRequest,
+                                    completionHandler: @escaping (Result<T>) -> Void) {
+        guard let completionBlock = completionHandler as? ((Result<AuthenticationResponse>) -> Void) else {
+            completionHandler(.error(ResponseError.badRequest400(error: nil)))
+            return
+        }
+        
         if let request = request as? ExplicitLoginRequest {
-            let loginViewController = LoginBuilder.make(networking: networking, loginData: request.data) { result in
-                func reportResult() {
-                    guard let result = result as? Result<T> else {
-                        completionHandler(.error(ResponseError.other)) //Internal error//
-                        return
-                    }
-                    
-                    completionHandler(result)
-                }
-                if let loginViewController = self.loginViewController {
-                    self.dismissBlock?(loginViewController) { reportResult() }
-                } else {
-                    reportResult()
-                }
+            var loginViewController: LoginViewController!
+            loginViewController = LoginBuilder.make(networking: networking, loginData: request.data) { result in
+                self.dismissBlock(loginViewController)
+                completionBlock(result)
             }
-            self.loginViewController = loginViewController
-            presentationBlock?(loginViewController) {}
+            presentationBlock(loginViewController)
         } else {
             completionHandler(.error(ResponseError.badRequest400(error: nil)))
         }
