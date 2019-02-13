@@ -21,9 +21,9 @@ open class Module: ModuleType {
         self.dismissBlock = dismissBlock
     }
     
-    public func execute<T: Codable>(networking: NetworkingType,
-                                    request: InternalRequest,
-                                    completionHandler: @escaping (Result<T>) -> Void) {
+    public func execute<T>(networking: NetworkingType,
+                           request: InternalRequest,
+                           completionHandler: @escaping (Result<T>) -> Void) {
         guard let completionBlock = completionHandler as? ((Result<AuthenticationResponse>) -> Void) else {
             completionHandler(.error(ResponseError.badRequest400(error: nil)))
             return
