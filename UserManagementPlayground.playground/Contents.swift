@@ -6,7 +6,8 @@ import UserManagement
 import Networking
 
 class Networking: NetworkingType {
-    let modules: [ModuleType.Type] = [Module.self]
+    let registeredModules: [ModuleType.Type] = [Module.self]
+    var inMemoryModule = [ModuleType]()
     
     func execute<T: Codable>(request: RemoteRequest,
                              completionHandler: @escaping (_ result: Result<T>) -> Void) {
